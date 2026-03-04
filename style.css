@@ -1,0 +1,212 @@
+:root {
+            /* Light Mode */
+            --bg-color-light: #f0f2f5;
+            --text-color-light: #1a1a2e;
+            --card-bg-light: #ffffff;
+            --primary-glow-light: #4361ee;
+            --secondary-glow-light: #f72585;
+            --nav-bg-light: rgba(255, 255, 255, 0.8);
+            
+            /* Dark Mode (Neon Aesthetic) */
+            --bg-color-dark: #0a0a16;
+            --text-color-dark: #e0e0ff;
+            --card-bg-dark: #13132b;
+            --primary-glow-dark: #00f0ff;
+            --secondary-glow-dark: #ff007f;
+            --nav-bg-dark: rgba(10, 10, 22, 0.8);
+        }
+
+        /* Apply Variables Based on Theme */
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color-light);
+            color: var(--text-color-light);
+            transition: background-color 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        html.dark body {
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+        }
+
+        /* Typography & Glow Effects */
+        .neon-text {
+            color: var(--text-color-light);
+        }
+        
+        html.dark .neon-text.primary {
+            color: #fff;
+            text-shadow: 0 0 5px var(--primary-glow-dark), 0 0 10px var(--primary-glow-dark), 0 0 20px var(--primary-glow-dark);
+        }
+
+        html.dark .neon-text.secondary {
+            color: #fff;
+            text-shadow: 0 0 5px var(--secondary-glow-dark), 0 0 10px var(--secondary-glow-dark), 0 0 20px var(--secondary-glow-dark);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--nav-bg-light);
+            backdrop-filter: blur(10px);
+            transition: background-color 0.4s ease;
+        }
+
+        html.dark nav {
+            background-color: var(--nav-bg-dark);
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 240, 255, 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-glow-light);
+            transition: width 0.3s ease;
+        }
+
+        html.dark .nav-link::after {
+            background-color: var(--primary-glow-dark);
+            box-shadow: 0 0 8px var(--primary-glow-dark);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Cards & Containers */
+        .aesthetic-card {
+            background-color: var(--card-bg-light);
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease;
+            border: 1px solid transparent;
+        }
+
+        html.dark .aesthetic-card {
+            background-color: var(--card-bg-dark);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        html.dark .aesthetic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3), inset 0 0 10px rgba(0, 240, 255, 0.1);
+            border-color: rgba(0, 240, 255, 0.3);
+        }
+
+        /* Progress Bars */
+        .progress-track {
+            background-color: rgba(0,0,0,0.1);
+            border-radius: 999px;
+            overflow: hidden;
+            height: 12px;
+        }
+
+        html.dark .progress-track {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-glow-light), var(--secondary-glow-light));
+            width: 0%; /* Set by JS */
+            transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+            border-radius: 999px;
+        }
+
+        html.dark .progress-fill {
+            background: linear-gradient(90deg, var(--primary-glow-dark), var(--secondary-glow-dark));
+            box-shadow: 0 0 10px var(--primary-glow-dark);
+        }
+
+        /* Buttons & Icons */
+        .neon-btn {
+            background: transparent;
+            border: 2px solid var(--primary-glow-light);
+            color: var(--primary-glow-light);
+            transition: all 0.3s ease;
+        }
+
+        .neon-btn:hover {
+            background: var(--primary-glow-light);
+            color: #fff;
+        }
+
+        html.dark .neon-btn {
+            border-color: var(--primary-glow-dark);
+            color: var(--primary-glow-dark);
+            text-shadow: 0 0 5px var(--primary-glow-dark);
+            box-shadow: 0 0 10px inset rgba(0, 240, 255, 0.2), 0 0 10px rgba(0, 240, 255, 0.2);
+        }
+
+        html.dark .neon-btn:hover {
+            background: var(--primary-glow-dark);
+            color: #000;
+            box-shadow: 0 0 20px var(--primary-glow-dark);
+            text-shadow: none;
+        }
+
+        .social-icon {
+            transition: transform 0.3s ease, color 0.3s ease, filter 0.3s ease;
+            color: var(--text-color-light);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            color: var(--secondary-glow-light);
+        }
+
+        html.dark .social-icon {
+            color: var(--text-color-dark);
+        }
+
+        html.dark .social-icon:hover {
+            color: var(--secondary-glow-dark);
+            filter: drop-shadow(0 0 8px var(--secondary-glow-dark));
+        }
+
+        /* Image Placeholder Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .hero-image {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Section Setup */
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px 60px 20px;
+        }
+
+        /* Modal */
+        #login-modal {
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        #login-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
