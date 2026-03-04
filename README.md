@@ -9,3 +9,6 @@ Progress: [███████████████████████
 ![JavaScript](https://img.shields.io/badge/JavaScript-yellow?style=for-the-badge)
 
 </div>
+
+<h1>UPDATE:</h1>
+*Fixing the Contact navigation bar with there coresponding link to the social media
