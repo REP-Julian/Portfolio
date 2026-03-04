@@ -12,3 +12,4 @@ Progress: [███████████████████████
 
 <h1>UPDATE:</h1>
 *Fixing the Contact navigation bar with there coresponding link to the social media
+*Fixing the Footer information
