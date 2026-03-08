@@ -23,3 +23,23 @@ const revealObserver = new IntersectionObserver(
 );
 
 revealTargets.forEach((element) => revealObserver.observe(element));
+
+const navbar = document.querySelector(".navbar");
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+if (navbar && menuToggle) {
+	menuToggle.addEventListener("click", () => {
+		const isOpen = navbar.classList.toggle("nav-open");
+		menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+	});
+
+	navLinks.forEach((link) => {
+		link.addEventListener("click", () => {
+			if (navbar.classList.contains("nav-open")) {
+				navbar.classList.remove("nav-open");
+				menuToggle.setAttribute("aria-expanded", "false");
+			}
+		});
+	});
+}

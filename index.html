@@ -59,8 +59,15 @@ body::after {
                             <!-- Navigation Bar -->
 
     <nav class="navbar"> 
-        <div class="logo"> Portfolio</div>
-        <ul class="nav-links">
+        <div class="nav-top">
+          <div class="logo"> Portfolio</div>
+          <button class="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-controls="primary-nav" aria-expanded="false">
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+          </button>
+        </div>
+        <ul class="nav-links" id="primary-nav">
           <li><a href="#home">Home</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#my-work">My Work</a></li>
@@ -148,6 +155,7 @@ body::after {
         <div class="progress-bar">
           <div class="progress" style="width: 50%;"></div>
         </div>
+      </div>
     </div>
   </div>
 </section>
