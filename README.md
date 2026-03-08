@@ -14,5 +14,4 @@ Progress: [███████████████████████
 *Fixing the Contact navigation bar with there coresponding link to the social media
 
 *Fixing the Footer information
-
 *New style of website
