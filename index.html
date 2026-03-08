@@ -1,359 +1,321 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Aesthetic Portfolio</title>
-    <!-- Tailwind CSS for layout utility classes -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Poppins for aesthetic typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <title>Neon Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="antialiased selection:bg-pink-500 selection:text-white">
+<body> 
+<style>
+  html {
+  scroll-behavior: smooth;
+}
 
-    <!-- Navigation Bar -->
-    <nav class="fixed top-0 w-full z-50 py-4 px-6 md:px-12 flex justify-between items-center">
-        <div class="text-2xl font-bold tracking-wider uppercase cursor-pointer">
-            <span class="neon-text primary">Port</span><span class="neon-text secondary">folio</span>
-        </div>
-        
-        <!-- Desktop Nav -->
-        <ul class="hidden md:flex space-x-8 items-center font-semibold">
-            <li><a href="#home" class="nav-link active">Home</a></li>
-            <li><a href="#showcase" class="nav-link">Showcase</a></li>
-            <li><a href="#skills" class="nav-link">Skill</a></li>
-            <li><a href="#hobbies" class="nav-link">Hobbies</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-            <li>
-                <button onclick="toggleLoginModal()" class="neon-btn px-4 py-1 rounded-full text-sm font-bold tracking-wide">
-                    Login
-                </button>
-            </li>
-            <li>
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
-                    <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
-                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-300"></i>
-                </button>
-            </li>
+body {
+  font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 14% 18%, rgba(46, 230, 255, 0.2), transparent 35%),
+    radial-gradient(circle at 87% 21%, rgba(255, 154, 61, 0.15), transparent 32%),
+    radial-gradient(circle at 71% 83%, rgba(255, 79, 216, 0.18), transparent 34%),
+    linear-gradient(140deg, #050711 0%, #070b1d 48%, #04070f 100%);
+  min-height: 100vh;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(70px);
+  z-index: -1;
+  pointer-events: none;
+  animation: pulseGlow 8s ease-in-out infinite;
+}
+
+body::before {
+  top: -150px;
+  right: -90px;
+  background: rgba(46, 230, 255, 0.2);
+}
+
+body::after {
+  bottom: -170px;
+  left: -120px;
+  background: rgba(255, 79, 216, 0.15);
+  animation-delay: 1.8s;
+}
+</style>
+                            <!-- Navigation Bar -->
+
+    <nav class="navbar"> 
+        <div class="logo"> Portfolio</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#my-work">My Work</a></li>
+          <li><a href="#showcase">Showcase</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-
-        <!-- Mobile Menu Button -->
-        <div class="md:hidden flex items-center space-x-4">
-            <button id="theme-toggle-mobile" class="p-2 rounded-full">
-                <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
-                <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-300"></i>
-            </button>
-            <button id="mobile-menu-btn" class="text-current">
-                <i data-lucide="menu"></i>
-            </button>
-        </div>
     </nav>
 
-    <!-- Mobile Nav Menu (Hidden by default) -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white/95 dark:bg-[#0a0a16]/95 backdrop-blur-md z-40 flex flex-col items-center justify-center space-y-8 text-xl font-bold translate-x-full transition-transform duration-300 md:hidden">
-        <button id="close-menu-btn" class="absolute top-6 right-6">
-            <i data-lucide="x" class="w-8 h-8"></i>
-        </button>
-        <a href="#home" class="nav-link mobile-link">Home</a>
-        <a href="#showcase" class="nav-link mobile-link">Showcase</a>
-        <a href="#skills" class="nav-link mobile-link">Skill</a>
-        <a href="#hobbies" class="nav-link mobile-link">Hobbies</a>
-        <a href="#contact" class="nav-link mobile-link">Contact</a>
-        <button onclick="toggleLoginModal(); closeMobileMenu()" class="neon-btn px-6 py-2 rounded-full">Login</button>
+                            <!-- Home Section -->
+
+<section class="home-section" id="home">
+  <div class="home-content home-split">
+    <div class="home-text">
+      <span class="home-kicker">Aspiring Web Developer</span>
+      <h1 class="home-title">Julian <span class="highlight">Agustino</span></h1>
+      <p class="home-about">I am an aspiring developer from Quezon City, Metro Manila, focused on building clean, responsive, and user-friendly web experiences. I enjoy learning new technologies, improving my programming skills, and turning ideas into practical projects that solve real problems. Through continuous practice in front-end development, UI design, and coding fundamentals, I am working toward becoming a well-rounded software professional.</p>
+      <div class="home-facts">
+        <span class="fact-pill">HTML • CSS • JavaScript</span>
+        <span class="fact-pill">UI-Focused</span>
+        <span class="fact-pill">Always Learning</span>
+      </div>
+      <div class="home-btns">
+        <a href="#my-work" class="btn-primary">View My Projects</a>
+        <a href="#contact" class="btn-secondary">Get in Touch</a>
+      </div>
     </div>
+    <div class="home-image">
+      <img src="Image/GradPic.png" alt="Creative Illustration" class="rounded-hero-img">
+    </div>
+  </div>
+</section>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        
-        <!-- Home Section -->
-        <section id="home">
-            <div class="container mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
-                <!-- Left Side: Information -->
-                <div class="flex-1 text-center md:text-left space-y-6">
-                    <h2 class="text-xl md:text-2xl font-semibold tracking-wide opacity-80">Hello, World! I am</h2>
-                    <h1 class="text-5xl md:text-7xl font-bold leading-tight">
-                        <span class="neon-text primary block">Julian S. Agustino</span>
-                        <span class="text-2xl md:text-4xl mt-2 block opacity-90">Creative Developer & Designer</span>
-                    </h1>
-                    <p class="text-lg md:text-xl opacity-75 max-w-xl mx-auto md:mx-0 leading-relaxed">
-                        I am a versatile developer and UX/UI designer who bridges the gap between clean code and striking aesthetics. With a toolkit spanning HTML, CSS, JavaScript, Java, and Python, I build immersive digital experiences. As a Prompt Engineer, I explore the creative frontiers of AI. When I'm off the clock, I draw inspiration from online gaming and capturing the world through photography.
-                    </p>
-                    <div class="pt-4 flex justify-center md:justify-start space-x-4">
-                        <a href="#contact" class="neon-btn px-8 py-3 rounded-full font-bold text-lg inline-block">Hire Me</a>
-                        <a href="#skills" class="px-8 py-3 rounded-full font-bold text-lg inline-block border-2 border-transparent hover:border-gray-400 transition-colors">Explore</a>
-                    </div>
-                </div>
-                
-                <!-- Right Side: Image/Graphics -->
-                <div class="flex-1 flex justify-center">
-                    <div class="relative w-64 h-64 md:w-96 md:h-96 hero-image">
-                        <!-- Neon glowing backdrop circle -->
-                        <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-[#00f0ff] to-[#ff007f] opacity-20 dark:opacity-40 blur-3xl"></div>
-                        <img src="Image/GradPic.png" alt="Profile picture" class="relative z-10 w-full h-full rounded-full object-cover border-4 border-white/50 dark:border-[#00f0ff]/30 shadow-2xl">
-                    </div>
-                </div>
-            </div>
-        </section>
+                            <!-- Skills Section -->
 
-        <!-- Showcase Section -->
-        <section id="showcase" class="bg-black/5 dark:bg-white/5">
-            <div class="container mx-auto w-full max-w-5xl">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4 neon-text secondary">Showcase</h2>
-                    <p class="opacity-75 text-lg">Click any card to enlarge and view image details</p>
-                </div>
+<section class="skills-section" id="skills">
+  <div class="container">
+    <h2 class="section-title">My <span class="highlight">Expertise</span></h2>
+    <p class="section-subtitle">A quick overview of my technical stack and proficiency.</p>
+    
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-info">
+          <span>HTML & CSS</span>
+          <span>60%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 60%;"></div>
+        </div>
+      </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="showcase-card aesthetic-card overflow-hidden cursor-pointer" role="button" tabindex="0" aria-label="Open certification showcase image">
-                        <div class="w-full h-48 md:h-56">
-                            <img src="Image/Gemini Certification.png" alt="Gemini certification showcase image" class="showcase-image w-full h-full object-cover">
-                        </div>
-                        <div class="p-5 md:p-6">
-                            <h3 class="text-xl font-bold mb-2">Gemini Certification</h3>
-                            <p class="opacity-75">Certification milestone in AI and prompt engineering.</p>
-                        </div>
-                    </div>
+      <div class="skill-card">
+        <div class="skill-info">
+          <span>JavaScript</span>
+          <span>50%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 50%;"></div>
+        </div>
+      </div>
 
-                    <div class="showcase-card aesthetic-card overflow-hidden cursor-pointer" role="button" tabindex="0" aria-label="Open profile showcase image">
-                        <div class="w-full h-48 md:h-56">
-                            <img src="Image/Introduction to Python.jpg" alt="Profile showcase image" class="showcase-image w-full h-full object-cover">
-                        </div>
-                        <div class="p-5 md:p-6">
-                            <h3 class="text-xl font-bold mb-2">Introduction to Python</h3>
-                            <p class="opacity-75">Coursework and projects in Python programming fundamentals.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <div class="skill-card">
+        <div class="skill-info">
+          <span>Java</span>
+          <span>60%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 60%;"></div>
+        </div>
+      </div>
 
-        <!-- Skill Section -->
-        <section id="skills" class="bg-black/5 dark:bg-white/5">
-            <div class="container mx-auto max-w-5xl w-full">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4 neon-text primary">My Skills</h2>
-                    <p class="opacity-75 text-lg">Technologies and disciplines I master</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10 px-4 md:px-0">
-                    
-                    <!-- Skill Item -->
-                    <div class="skill-item" data-target="70">
-                        <div class="flex justify-between mb-2 font-semibold">
-                            <span class="flex items-center gap-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML logo" class="w-5 h-5">
-                                <span>HTML</span>
-                            </span>
-                            <span>70%</span>
-                        </div>
-                        <div class="progress-track">
-                            <div class="progress-fill"></div>
-                        </div>
-                    </div>
-
-                    <!-- Skill Item -->
-                    <div class="skill-item" data-target="70">
-                        <div class="flex justify-between mb-2 font-semibold">
-                            <span class="flex items-center gap-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS logo" class="w-5 h-5">
-                                <span>CSS</span>
-                            </span>
-                            <span>70%</span>
-                        </div>
-                        <div class="progress-track">
-                            <div class="progress-fill"></div>
-                        </div>
-                    </div>
-
-                    <!-- Skill Item -->
-                    <div class="skill-item" data-target="50">
-                        <div class="flex justify-between mb-2 font-semibold">
-                            <span class="flex items-center gap-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript logo" class="w-5 h-5">
-                                <span>JavaScript</span>
-                            </span>
-                            <span>50%</span>
-                        </div>
-                        <div class="progress-track">
-                            <div class="progress-fill"></div>
-                        </div>
-                    </div>
-
-                    <!-- Skill Item -->
-                    <div class="skill-item" data-target="70">
-                        <div class="flex justify-between mb-2 font-semibold">
-                            <span class="flex items-center gap-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java logo" class="w-5 h-5">
-                                <span>Java</span>
-                            </span>
-                            <span>70%</span>
-                        </div>
-                        <div class="progress-track">
-                            <div class="progress-fill"></div>
-                        </div>
-                    </div>
-
-                    <!-- Skill Item -->
-                    <div class="skill-item" data-target="60">
-                        <div class="flex justify-between mb-2 font-semibold">
-                            <span class="flex items-center gap-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python logo" class="w-5 h-5">
-                                <span>Python</span>
-                            </span>
-                            <span>60%</span>
-                        </div>
-                        <div class="progress-track">
-                            <div class="progress-fill"></div>
-                        </div>
-                    </div>
-
-                    <!-- Skill Item -->
-                    <div class="skill-item" data-target="70">
-                        <div class="flex justify-between mb-2 font-semibold">
-                            <span class="flex items-center gap-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="UX/UI logo" class="w-5 h-5">
-                                <span>UX/UI Designer</span>
-                            </span>
-                            <span>70%</span>
-                        </div>
-                        <div class="progress-track">
-                            <div class="progress-fill"></div>
-                        </div>
-                    </div>
-
-                    <!-- Skill Item (Full Width) -->
-                    <div class="skill-item md:col-span-2 md:w-2/3 mx-auto mt-4" data-target="80">
-                        <div class="flex justify-between mb-2 font-semibold text-lg text-[#f72585] dark:text-[#ff007f]">
-                            <span class="flex items-center gap-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Prompt engineering logo" class="w-5 h-5">
-                                <span>Prompt Engineer</span>
-                            </span>
-                            <span>80%</span>
-                        </div>
-                        <div class="progress-track h-4">
-                            <div class="progress-fill"></div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Hobbies Section -->
-        <section id="hobbies">
-            <div class="container mx-auto w-full max-w-5xl">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4 neon-text secondary">Hobbies & Interests</h2>
-                    <p class="opacity-75 text-lg">What I do when I'm away from the keyboard</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 px-4 md:px-0">
-                    
-                    <!-- Hobby Card 1 -->
-                    <div class="aesthetic-card p-10 flex flex-col items-center text-center group cursor-pointer">
-                        <div class="w-24 h-24 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6 transition-transform group-hover:scale-110 duration-300">
-                            <i data-lucide="gamepad-2" class="w-12 h-12 text-[#4361ee] dark:text-[#00f0ff]"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Online Games</h3>
-                        <p class="opacity-75">Immersing myself in virtual worlds, strategizing in competitive matches, and enjoying interactive storytelling.</p>
-                    </div>
-
-                    <!-- Hobby Card 2 -->
-                    <div class="aesthetic-card p-10 flex flex-col items-center text-center group cursor-pointer">
-                        <div class="w-24 h-24 rounded-full bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center mb-6 transition-transform group-hover:scale-110 duration-300">
-                            <i data-lucide="camera" class="w-12 h-12 text-[#f72585] dark:text-[#ff007f]"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Photography</h3>
-                        <p class="opacity-75">Capturing aesthetic moments, exploring urban landscapes, and playing with light, shadow, and neon reflections.</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="bg-black/5 dark:bg-white/5">
-            <div class="container mx-auto w-full max-w-4xl text-center">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8 neon-text primary">Let's Connect</h2>
-                <p class="opacity-75 text-lg mb-12 max-w-2xl mx-auto">Feel free to reach out for collaborations, project inquiries, or just to say hi. I'm always open to discussing new ideas.</p>
-                
-                <div class="flex flex-wrap justify-center gap-6 md:gap-10">
-                    <a href="https://www.facebook.com/Julian.Agustino.9206" target="_blank" rel="noopener noreferrer" class="social-icon flex flex-col items-center gap-2">
-                        <div class="p-4 rounded-full aesthetic-card">
-                            <i data-lucide="facebook" class="w-8 h-8"></i>
-                        </div>
-                        <span class="text-sm font-semibold opacity-80">Facebook</span>
-                    </a>
-                    <a href="https://www.instagram.com/masterzhiju/" target="_blank" rel="noopener noreferrer" class="social-icon flex flex-col items-center gap-2">
-                        <div class="p-4 rounded-full aesthetic-card">
-                            <i data-lucide="instagram" class="w-8 h-8"></i>
-                        </div>
-                        <span class="text-sm font-semibold opacity-80">Instagram</span>
-                    </a>
-                    <a href="https://github.com/REP-Julian" target="_blank" rel="noopener noreferrer" class="social-icon flex flex-col items-center gap-2">
-                        <div class="p-4 rounded-full aesthetic-card">
-                            <i data-lucide="github" class="w-8 h-8"></i>
-                        </div>
-                        <span class="text-sm font-semibold opacity-80">GitHub</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/julian-agustino-a87846366/" target="_blank" rel="noopener noreferrer" class="social-icon flex flex-col items-center gap-2">
-                        <div class="p-4 rounded-full aesthetic-card">
-                            <i data-lucide="linkedin" class="w-8 h-8"></i>
-                        </div>
-                        <span class="text-sm font-semibold opacity-80">LinkedIn</span>
-                    </a>
-                    <a href="mailto:agustino.2006.julian@gmail.com" class="social-icon flex flex-col items-center gap-2">
-                        <div class="p-4 rounded-full aesthetic-card">
-                            <i data-lucide="mail" class="w-8 h-8"></i>
-                        </div>
-                        <span class="text-sm font-semibold opacity-80">Gmail</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="text-center py-6 opacity-60 text-sm">
-        <p>&copy; 2026 Julian Agustino. All rights reserved.</p>
-    </footer>
-
-    <!-- Login Modal Box (Instead of alert()) -->
-    <div id="login-modal" class="fixed inset-0 z-[100] flex items-center justify-center">
-        <div class="aesthetic-card p-8 md:p-12 w-[90%] max-w-md relative">
-            <button onclick="toggleLoginModal()" class="absolute top-4 right-4 opacity-60 hover:opacity-100 transition-opacity">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-            <h3 class="text-3xl font-bold mb-6 text-center neon-text secondary">Login</h3>
-            <form onsubmit="handleLogin(event)" class="space-y-6">
-                <div>
-                    <label class="block text-sm font-medium mb-2 opacity-80">Username / Email</label>
-                    <input type="text" required class="w-full bg-black/5 dark:bg-white/5 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00f0ff] transition-colors">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-2 opacity-80">Password</label>
-                    <input type="password" required class="w-full bg-black/5 dark:bg-white/5 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-[#ff007f] transition-colors">
-                </div>
-                <button type="submit" class="w-full neon-btn py-3 rounded-lg font-bold text-lg mt-4">
-                    Sign In
-                </button>
-            </form>
+      <div class="skill-card">
+        <div class="skill-info">
+          <span>UI/UX Design</span>
+          <span>75%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 75%;"></div>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-info">
+          <span>Python</span>
+          <span>50%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 50%;"></div>
         </div>
     </div>
+  </div>
+</section>
 
-    <div id="showcase-modal" class="fixed inset-0 z-[110] hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-        <div class="relative w-full max-w-6xl">
-            <button id="close-showcase-modal" class="absolute -top-12 right-0 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors" aria-label="Close showcase image">
-                <i data-lucide="x" class="w-7 h-7"></i>
-            </button>
-            <img id="showcase-modal-image" src="Image/Gemini Certification.png" alt="Enlarged showcase image" class="w-full max-h-[90vh] object-contain rounded-xl border border-white/20">
-        </div>
+                                <!-- Hobbies Section -->
+
+<section class="hobbies-section" id="hobbies">
+  <div class="container">
+    <h2 class="section-title">Beyond the <span class="highlight">Code</span></h2>
+    <p class="section-subtitle">What I do when I'm not in front of a screen.</p>
+    
+    <div class="hobbies-container">
+      <div class="hobby-card">
+        <div class="hobby-icon">📸</div>
+        <h3>Photography</h3>
+        <p>Capturing urban landscapes and street life through a 35mm lens.</p>
+      </div>
+
+      <div class="hobby-card">
+        <div class="hobby-icon">🏔️</div>
+        <h3>Adventure</h3>
+        <p>Exploring city park and great view to relax.</p>
+      </div>
+
+      <div class="hobby-card">
+        <div class="hobby-icon">☕</div>
+        <h3>Coffee Brewing</h3>
+        <p>Searching for the perfect pour-over technique and single-origin beans.</p>
+      </div>
+
+      <div class="hobby-card">
+        <div class="hobby-icon">🎮</div>
+        <h3>Gaming</h3>
+        <p>Enjoying immersive RPGs and competitive strategy games.</p>
+      </div>
     </div>
-    <script src="script.js" defer></script>
+  </div>
+</section>
+
+                            <!-- My Work Section -->
+
+<section class="my-work-section" id="my-work">
+  <div class="container">
+    <h2 class="section-title">My<span class="highlight">Work</span></h2>
+    <p class="section-subtitle">A collection of my recent digital creations.</p>
+
+    <div class="my-work-grid">
+      <div class="project-card">
+        <img src="Image/My work.png" alt="PawTrack Project">
+        <div class="project-overlay">
+          <h3>PawTrack Project</h3>
+          <p>A application for tracking pet and adopt to ensure of there safety.</p>
+          <a href="https://github.com/REP-Julian/PawTrackManagement" class="project-link">View Details</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="" alt="">
+        <div class="project-overlay">
+          <h3></h3>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="" alt="">
+        <div class="project-overlay">
+          <h3></h3>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+                            <!-- Showcase Section -->
+
+<section class="showcase-section" id="showcase">
+  <div class="container">
+    <h2 class="section-title">Show<span class="highlight">Case</span></h2>
+    <p class="section-subtitle">A collection of my recent digital creations.</p>
+
+    <div class="showcase-grid">
+      <div class="project-card">
+        <img src="Image/Gemini Certification.png" alt="Gemini AI Certification">
+        <div class="project-overlay">
+          <h3>Gemini AI Certification</h3>
+          <p>Completed a practical certification focused on prompt engineering and AI workflows.</p>
+          <a href="#" class="project-link">View Details</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="Image/Introduction to Python.jpg" alt="Introduction to Python Certificate">
+        <div class="project-overlay">
+          <h3>Python Fundamentals</h3>
+          <p>Built a solid foundation in core Python concepts, logic building, and scripting.</p>
+          <a href="#" class="project-link">View Details</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="" alt="Portfolio Identity Project">
+        <div class="project-overlay">
+          <h3>Portfolio Brand Design</h3>
+          <p>Crafted a personal visual direction with neon styling, clean hierarchy, and responsive design.</p>
+          <a href="#" class="project-link">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+                    <!-- Contact Section -->
+
+<section class="contact-section" id="contact">
+  <div class="container">
+    <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+    <p class="section-subtitle">Have a project in mind? Send me a message today.</p>
+
+    <div class="contact-card">
+     <div class="contact-info">
+  <h3>Let's Connect</h3>
+  <p>Feel free to reach out through the form, or find me on my social networks and email.</p>
+  
+  <div class="social-links">
+    <a href="https://www.facebook.com/Julian.Agustino.9206" class="social-btn facebook">
+      <i class="fab fa-facebook-f"></i> Facebook
+    </a>
+    
+    <a href="https://www.instagram.com/masterzhiju/" class="social-btn instagram">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    
+    <a href="https://github.com/REP-Julian" class="social-btn github">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+    
+    <a href="https://www.linkedin.com/in/julian-agustino-a87846366/" class="social-btn linkedin">
+      <i class="fab fa-linkedin-in"></i> LinkedIn
+    </a>
+    
+    <a href="mailto:agustino.2006.julian@gmail.com" class="social-btn gmail">
+      <i class="fas fa-envelope"></i> Gmail
+    </a>
+  </div>
+  
+  <div class="location-text">
+    <i class="fas fa-map-marker-alt"></i> Quezon City, Metro Manila
+  </div>
+</div>
+
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-section">
+  <div class="container footer-content">
+    <div class="footer-logo">Portfolio</div>
+    <p class="footer-text">&copy; 2026 Julian Agustino. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
